@@ -40,4 +40,17 @@ describe("Calculator", () => {
     fireEvent.click(equalButton);
     expect(runningTotal.textContent).toEqual("3");
   });
+
+  it("should mulitply 3 by 5 and get 15", () => {
+    const button3 = container.getByTestId("number3");
+    const button5 = container.getByTestId("number5");
+    const multiplyButton = container.getByTestId("operator-multiply");
+    const equalButton = container.getByTestId("operator-equals");
+    const runningTotal = container.getByTestId("running-total");
+    fireEvent.click(button3);
+    fireEvent.click(multiplyButton);
+    fireEvent.click(button5);
+    fireEvent.click(equalButton);
+    expect(runningTotal.textContent).toEqual("15");
+  });
 });
