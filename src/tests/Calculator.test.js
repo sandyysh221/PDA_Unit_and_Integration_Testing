@@ -15,16 +15,16 @@ describe("Calculator", () => {
     expect(runningTotal.textContent).toEqual("4");
   });
 
-  it("should add two numbers together", () => {
+  it("should add 1 to 4 and get 5", () => {
     const button1 = container.getByTestId("number1");
-    const button2 = container.getByTestId("number2");
+    const button4 = container.getByTestId("number4");
     const addButton = container.getByTestId("operator-add");
     const equalButton = container.getByTestId("operator-equals");
     const runningTotal = container.getByTestId("running-total");
     fireEvent.click(button1);
     fireEvent.click(addButton);
-    fireEvent.click(button2);
+    fireEvent.click(button4);
     fireEvent.click(equalButton);
-    expect(runningTotal.textContent).toEqual("3");
+    expect(runningTotal.textContent).toEqual("5");
   });
 });
