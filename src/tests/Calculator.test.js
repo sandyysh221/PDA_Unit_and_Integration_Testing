@@ -79,4 +79,21 @@ describe("Calculator", () => {
     fireEvent.click(button3);
     expect(runningTotal.textContent).toEqual("123");
   });
+
+  it("should chain multiple operations together", () => {
+    const button1 = container.getByTestId("number1");
+    const button2 = container.getByTestId("number2");
+    const button3 = container.getByTestId("number3");
+    const addButton = container.getByTestId("operator-add");
+    const divideButton = container.getByTestId("operator-divide");
+    const equalButton = container.getByTestId("operator-equals");
+    const runningTotal = container.getByTestId("running-total");
+    fireEvent.click(button1);
+    fireEvent.click(addButton);
+    fireEvent.click(button3);
+    fireEvent.click(equalButton);
+    fireEvent.click(divideButton);
+    fireEvent.click(button2);
+    expect(runningTotal.textContent).toEqual("2");
+  });
 });
