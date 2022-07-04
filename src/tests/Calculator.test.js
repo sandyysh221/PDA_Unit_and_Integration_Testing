@@ -68,4 +68,15 @@ describe("Calculator", () => {
     fireEvent.click(equalButton);
     expect(runningTotal.textContent).toEqual("3");
   });
+
+  it("should concatenate mulitple number button clicks", () => {
+    const button1 = container.getByTestId("number1");
+    const button2 = container.getByTestId("number2");
+    const button3 = container.getByTestId("number3");
+    const runningTotal = container.getByTestId("running-total");
+    fireEvent.click(button1);
+    fireEvent.click(button2);
+    fireEvent.click(button3);
+    expect(runningTotal.textContent).toEqual("123");
+  });
 });
